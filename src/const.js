@@ -1,0 +1,1 @@
+export const url = process.env.BOOK_REVIEW_URL;

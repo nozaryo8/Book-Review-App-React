@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<SignIn /> スナップショットテスト 1`] = `
+<div>
+  <main
+    className="signin"
+  >
+    <h2>
+      サインイン
+    </h2>
+    <p
+      className="error-message"
+    />
+    <form
+      className="signin-form"
+    >
+      <label
+        className="email-label"
+      >
+        メールアドレス
+      </label>
+      <br />
+      <input
+        className="email-input"
+        id="input-email"
+        onChange={[Function]}
+        type="email"
+      />
+      <br />
+      <label
+        className="password-label"
+      >
+        パスワード
+      </label>
+      <br />
+      <input
+        className="password-input"
+        onChange={[Function]}
+        type="password"
+      />
+      <br />
+      <button
+        className="signin-button"
+        id="submit"
+        onClick={[Function]}
+        type="button"
+      >
+        サインイン
+      </button>
+    </form>
+  </main>
+</div>
+`;

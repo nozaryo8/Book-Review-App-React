@@ -8,43 +8,42 @@ import { useDispatch, useSelector } from "react-redux";
 import { url } from "../const";
 
 export const SignIn = () => {
-//   const auth = useSelector((state) => state.auth.isSignIn);
-//   const dispatch = useDispatch();
-//   const history = useNavigate();
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [errorMessage, setErrorMessage] = useState();
-//   const [cookies, setCookie, removeCookie] = useCookies();
-  const handleEmailChange = (e) => setEmail(e.target.value);
-  const handlePasswordChange = (e) => setPassword(e.target.value);
-  const onSignIn = () => {
-    console.log(process.env);
-    console.log(url);
-    if(checkForm(email, password)) {
-        axios
-        .post(`https://ifrbzeaz2b.execute-api.ap-northeast-1.amazonaws.com/signin`, { email: email, password: password })
-        .then((res) => {
-            // setCookie("token", res.data.token);
-            // dispatch(signIn());
-            // history('/');
-        })
-        .catch((err) => {
-            setErrorMessage(`サインインに失敗しました。${err}`);
-        });
+    //   const auth = useSelector((state) => state.auth.isSignIn);
+    //   const dispatch = useDispatch();
+    //   const history = useNavigate();
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [errorMessage, setErrorMessage] = useState();
+    //   const [cookies, setCookie, removeCookie] = useCookies();
+    const handleEmailChange = (e) => setEmail(e.target.value);
+    const handlePasswordChange = (e) => setPassword(e.target.value);
+    const onSignIn = () => {
+        console.log(process.env);
+        console.log(url);
+        if(checkForm(email, password)) {
+            axios
+            .post(`https://ifrbzeaz2b.execute-api.ap-northeast-1.amazonaws.com/signin`, { email: email, password: password })
+            .then((res) => {
+                // setCookie("token", res.data.token);
+                // dispatch(signIn());
+                // history('/');
+            })
+            .catch((err) => {
+                setErrorMessage(`サインインに失敗しました。${err}`);
+            });
+        }
+    };
+    const checkForm = (email, password) => {
+        const pattern = /^[A-Za-z0-9]{1}[A-Za-z0-9_.-]*@{1}[A-Za-z0-9_.-]+.[A-Za-z0-9]+$/;
+
+        if (!pattern.test(email)) {
+            setErrorMessage("正式なメールアドレスではありません");
+            return false;
+        }
+        return true;
     }
-  };
-  const checkForm = (email, password) => {
-    const pattern = /^[A-Za-z0-9]{1}[A-Za-z0-9_.-]*@{1}[A-Za-z0-9_.-]+.[A-Za-z0-9]+$/;
 
-    if (!pattern.test(email)) {
-        setErrorMessage("正式なメールアドレスではありません");
-        return false;
-    }
-    return true;
-  }
-
-//   if (auth) return <Navigate to="/" />;
-
+    //   if (auth) return <Navigate to="/" />;
     return (
         <div>
             <main className="signin">
